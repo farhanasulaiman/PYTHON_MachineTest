@@ -1,0 +1,29 @@
+{% extends 'admin/base/admin_home.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+<h4 class="py-3 mb-0">Student List</h4>
+<div class="container">
+    <div class="row">
+<!--            <h1 class="text-center caption" >Student List</h1>-->
+<table class="table table-bordered" style="text-align:center">
+    <tr>
+        <th>#</th>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Phone</th>
+    </tr>
+    {% for row in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td><img src="{{ row.photo.url }}" class="rounded-circle"/></td>
+        <td>{{ row.name }}</td>
+        <td>{{ row.dob }}</td>
+        <td>{{ row.phone }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+    </div>
+</div>
+{% endblock %}

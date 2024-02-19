@@ -1,0 +1,36 @@
+{% extends 'admin/base/admin_home.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+<h4 class="py-3 mb-0">Marks List</h4>
+<div class="container">
+    <div class="row">
+<!--            <h1 class="text-center caption" >Student List</h1>-->
+<table class="table table-bordered" style="text-align:center">
+    <tr>
+        <th>#</th>
+        <th>Student</th>
+        <th>Science</th>
+        <th>Maths</th>
+        <th>Physics</th>
+        <th>Action</th>
+        <th>Action</th>
+    </tr>
+    {% for row in mark_data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{ row.stud_id }}</td>
+        <td>{{ row.Science }}</td>
+        <td>{{ row.Maths }}</td>
+        <td>{{ row.Physics }}</td>
+        <td><form action="{% url 'updtmarks' row.id %}">
+            <button type="submit" class="btn btn-outline-primary">Update</button></form> </td>
+        <td><form action="{% url 'delmarks' row.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-danger" >Delete</button> </form></td>
+    </tr>
+    {% endfor %}
+</table>
+
+    </div>
+</div>
+{% endblock %}

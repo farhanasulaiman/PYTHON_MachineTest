@@ -1,0 +1,17 @@
+{% extends 'admin/base/admin_home.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+<h4 class="py-3 mb-0">New Marks</h4>
+<div class="container">
+<div class="row">
+        <div class="form-group">
+<form action="#" method="POST">
+    {% csrf_token %}
+    {{ marks_form|crispy }}
+    <button type="submit" class="btn btn-outline-danger mr-2">Submit</button>
+<!--                      <button class="btn btn-dark">Cancel</button>-->
+</form>
+        </div>
+        </div>
+</div>
+{% endblock %}

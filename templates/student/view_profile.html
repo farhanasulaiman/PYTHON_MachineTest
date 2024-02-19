@@ -1,0 +1,25 @@
+{% extends 'student/base/stud_home.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+<h5 class="p-3 mb-0">My Profile</h5>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-4 mb-4">
+    <div class="card bg-danger mb-3 text-center text-white-50" style="max-width:20rem;">
+<!--      <div class="card-header"><h5 class="card-title text-white-50">{{row.day}}</h5></div>-->
+      <div class="card-body text-center">
+        <p><img src="{{ data.photo.url }}" class="rounded-circle" width="50px" height="50px"/></p>
+        <p class="card-text" >Name: {{data.name}}</p>
+        <p class="card-text">Age: {{data.dob}}</p>
+        <p class="card-text">Phone:{{data.phone}}</p>
+          <form action="{% url 'updtprofile' %}" >
+              {% csrf_token %}
+              <button type="submit" class="btn btn-outline-primary mr-2">Edit</button>
+          </form>
+   </div>
+</div>
+  </div>
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base/login_base.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+<div class="login-wrap p-0">
+  <h3 class="mb-4 text-center">Not a Student yet?</h3>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{stud_form|crispy}}
+      {{log_form|crispy}}
+      <div class="form-group">
+        <button type="submit" class="form-control btn submit px-3">Register Now</button>
+      </div>
+    </form>
+</div>
+{% endblock %}
